@@ -5,6 +5,8 @@ package com.software.group2.entities;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 /**
@@ -14,7 +16,9 @@ import javax.persistence.Id;
 @Entity
 public class Student implements User {
 	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer StudentID;
+	
 	@Column(name="studentfname")
 	private String StudentFName;
 	
@@ -39,11 +43,34 @@ public class Student implements User {
 	@Column(name="studentstate")
 	private String StudentState;
 
+	@Column(name="studentemail")
+	private String StudentEmail;
 	
+	/**
+	 * @return the studentEmail
+	 */
+	public String getStudentEmail() {
+		return StudentEmail;
+	}
+
+
+	/**
+	 * @param studentEmail the studentEmail to set
+	 */
+	public void setStudentEmail(String studentEmail) {
+		StudentEmail = studentEmail;
+	}
+
+
 	@Override
 	public boolean isAuthenticated() {
 		// TODO Auto-generated method stub
 		return true;
+	}
+
+
+	public Student() {
+		super();
 	}
 
 

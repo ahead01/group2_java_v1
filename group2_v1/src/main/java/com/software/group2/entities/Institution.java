@@ -5,8 +5,11 @@ package com.software.group2.entities;
 
 import java.util.ArrayList;
 
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Transient;
 
@@ -16,7 +19,10 @@ import javax.persistence.Transient;
  */
 @Entity
 public class Institution implements User {
+
+
 	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer InstitutionID;
 	
 	@Column(name="institutionpwd")
@@ -43,6 +49,9 @@ public class Institution implements User {
 	@Column(name="institutionstatecd")
 	private String InstitutionStateCD;
 	
+	@Column(name="institutionapproved")
+	private String InstitutionApproved;
+	
 	@Transient
 	public ArrayList<MyVideo> videos;
 	
@@ -53,6 +62,33 @@ public class Institution implements User {
 	public boolean isAuthenticated() {
 		// TODO Auto-generated method stub
 		return true;
+	}
+
+	public Institution(String institutionPWD, String institutionName, String institutionDesc, String institutionEmail,
+			String institutionZipCD, String institutionStreetAddr, String institutionCity, String institutionStateCD) {
+		super();
+		InstitutionPWD = institutionPWD;
+		InstitutionName = institutionName;
+		InstitutionDesc = institutionDesc;
+		InstitutionEmail = institutionEmail;
+		InstitutionZipCD = institutionZipCD;
+		InstitutionStreetAddr = institutionStreetAddr;
+		InstitutionCity = institutionCity;
+		InstitutionStateCD = institutionStateCD;
+	}
+	
+	/**
+	 * @return the institutionApproved
+	 */
+	public String getInstitutionApproved() {
+		return InstitutionApproved;
+	}
+
+	/**
+	 * @param institutionApproved the institutionApproved to set
+	 */
+	public void setInstitutionApproved(String institutionApproved) {
+		InstitutionApproved = institutionApproved;
 	}
 
 	/**
@@ -81,6 +117,10 @@ public class Institution implements User {
 	 */
 	public void setInstitutionPWD(String institutionPWD) {
 		InstitutionPWD = institutionPWD;
+	}
+
+	public Institution() {
+		super();
 	}
 
 	/**

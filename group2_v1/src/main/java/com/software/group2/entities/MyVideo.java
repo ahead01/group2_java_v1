@@ -27,6 +27,12 @@ public class MyVideo {
 	
 	@Column(name="videoclassid")
 	private Integer VideoClassID;
+	
+	
+	
+	public MyVideo() {
+		super();
+	}
 	/**
 	 * @return the videoID
 	 */

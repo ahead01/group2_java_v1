@@ -27,6 +27,11 @@ public class MyClass {
 	
 	@Column(name = "classinstitutionid")
 	public Integer ClassInstitutionID;
+
+	
+	public MyClass() {
+		super();
+	}
 	/**
 	 * @return the classID
 	 */
